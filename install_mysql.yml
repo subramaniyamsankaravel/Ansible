@@ -11,7 +11,7 @@ mysql_users:
 
 ---
 - name: Install db server 
-  hosts: all
+  hosts: DB_Server
   vars_files:
     - vars/main.yml
   roles:

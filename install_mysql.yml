@@ -1,0 +1,19 @@
+----vars/main.yml
+
+mysql_root_password: "root-password"
+mysql_databases:
+  - name: database
+mysql_users:
+  - name: petclinic
+    host: "%"
+    password: petclinic
+    priv: "database.*:ALL"
+
+---
+- name: Install db server 
+  hosts: all
+  vars_files:
+    - vars/main.yml
+  roles:
+    - role: geerlingguy.mysql
+      become: yes
